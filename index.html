@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BarDuck WebApp</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <h1>🦆 BarDuck RPG</h1>
+        <p id="user">Привет, утка!</p>
+        <p>💰 BRD: <span id="brd">—</span></p>
+        <div class="buttons">
+            <button onclick="sendAction('fight')">⚔️ Битва</button>
+            <button onclick="sendAction('inventory')">🎒 Инвентарь</button>
+            <button onclick="sendAction('craft')">🛠 Крафт</button>
+            <button onclick="sendAction('shop')">🛒 Магазин</button>
+        </div>
+        <div class="tonconnect-placeholder">
+            🔗 Подключение к TON скоро будет здесь
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
