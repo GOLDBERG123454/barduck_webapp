@@ -1,15 +1,18 @@
+const isBrowser = typeof window !== 'undefined';
 let tg;
 let tgId;
 
-if (window.Telegram && window.Telegram.WebApp) {
+if (isBrowser && window.Telegram && window.Telegram.WebApp) {
     tg = window.Telegram.WebApp;
     tg.ready();
     tgId = tg.initDataUnsafe.user?.id;
     document.getElementById("user").innerText = `Привет, ${tg.initDataUnsafe.user?.first_name || 'Утка'}!`;
 } else {
     tg = { sendData: () => {} };
-    console.warn('Telegram WebApp not found, running in fallback mode');
-    document.getElementById("user").innerText = 'Привет, Утка!';
+    if (isBrowser) {
+        console.warn('Telegram WebApp not found, running in fallback mode');
+        document.getElementById("user").innerText = 'Привет, Утка!';
+    }
 }
 
 function sendAction(action) {
